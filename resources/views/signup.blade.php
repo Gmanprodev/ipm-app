@@ -1,21 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>{{ config('app.name', 'Laravel') }}</title>
-
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
-    </head>
-        
-    <body style="font-family: Open Sans, sans-serif" class="bg-hero-image bg-no-repeat bg-center h-full bg-cover bg-fixed">
+<x-layout.app>
+    <body style="font-family: Open Sans, sans-serif">
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="max-w-lg mx-auto">
                 <h1 class="text-2xl font-bold text-center text-indigo-600 sm:text-3xl">
@@ -24,7 +8,7 @@
                 </h1>
         
                 <form action="" class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
-                    <p class="text-lg font-medium">Sign in to your account</p>
+                    <p class="text-lg font-medium">Sign up for an account</p>
         
                     <div>
                     <label for="email" class="text-sm font-medium">Email</label>
@@ -93,19 +77,15 @@
                 </div>
     
                 <button type="submit" class="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg">
-                    Sign in
+                    Sign up
                 </button>
     
                 <p class="text-sm text-center text-gray-500">
-                    No account?
-                    <a class="underline" href="">Sign up</a>
+                    Already have an account?
+                    <a class="underline" href="{{ route('signin') }}">Sign in</a>
                 </p>
                 </form>
             </div>
         </div>
     </body>
-
-    <!-- Scripts -->
-    <script src="{{ mix('js/app.js') }}" defer></script>
-
-</html>
+</x-layout.app>
