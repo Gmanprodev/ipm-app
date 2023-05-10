@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AddressController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,40 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-Route::get('/', HomeController::class)->name('signin');
+// Route::get('/', HomeController::class)->name('signin');
 
-// Accounts
-Route::get('/signup', AccountController::class)->name('signup');
+// // Accounts
+// Route::get('/signup', AccountController::class)->name('signup');
+
+
+
+Route::get('/', [AuthController::class, 'show'])
+    ->name('login');
+
+Route::post('/login', [AuthController::class, 'authenticate'])
+    ->name('authenticate');
+
+Route::post('/logout', [AuthController::class, 'logout'])
+    ->name('logout');;
+
+Route::middleware('auth')->group(function () {
+    Route::get('/addresses', [AddressController::class, 'index'])
+        ->name('addresses');;
+
+    Route::get('/addresses/create', [AddressController::class, 'create'])
+        ->name('addresses.create');
+
+    Route::post('/addresses/create', [AddressController::class, 'postCreate'])
+        ->name('addresses.post.create');;
+
+    Route::get('/addresses/{id}/edit', [AddressController::class, 'edit'])
+        ->name('addresses.edit');
+
+    Route::post('/addresses/{id}/edit', [AddressController::class, 'postEdit'])
+        ->name('addresses.post.edit');
+
+    Route::post('/addresses/{id}/delete', [AddressController::class, 'postDelete'])
+        ->name('addresses.post.delete');
+});
 
 
