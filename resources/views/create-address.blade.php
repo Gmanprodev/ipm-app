@@ -1,4 +1,4 @@
-<x-layout class="app">
+<x-layout.app>
     <body>
         <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
             <div class="max-w-lg mx-auto">
@@ -34,4 +34,4 @@
             </div>
         </div>
     </body>
-</x-layout>
+</x-layout.app>

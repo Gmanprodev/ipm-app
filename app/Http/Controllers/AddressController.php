@@ -16,12 +16,12 @@ class AddressController extends Controller
         ]);
     }
 
-    public function addressCreate()
+    public function create()
     {
-        return view('address.create');
+        return view('create-address');
     }
 
-    public function addressEdit($id)
+    public function edit($id)
     {
         $address = Address::find($id);
 
