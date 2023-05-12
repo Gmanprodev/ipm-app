@@ -29,7 +29,7 @@ class AddressController extends Controller
             abort(404);
         }
 
-        return view('address.edit', [
+        return view('edit-address', [
             'address' => $address
         ]);
     }
