@@ -24,13 +24,14 @@
                                     <td class="">
                                         <form method="POST" action="/addresses/{{ $address->id }}/delete">
                                             @csrf
-                                            <button type="submit" class="w-full justify-center items-center py-1 text-sm font-medium text-white bg-red-600 rounded-lg">
+                                            <button type="submit" id="delete" class="w-full justify-center items-center py-1 text-sm font-medium text-white bg-red-600 rounded-lg">
                                                 Delete
                                             </button>
                                         </form>
                                     </td>
                                 </tr>
                             </tbody>
+
                         @empty
                             <p class="text-lg font-medium text-center">No Addresses Found!</p>
                         @endforelse
@@ -49,4 +50,21 @@
             </div>
         </div>
     </body>
+    
+        <script>
+
+            $('#delete').on('submit',function(e){
+                e.preventDefault();
+                swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Address has been deleted',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            });
+
+
+        </script>
+
 </x-layout.app>
