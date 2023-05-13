@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AddressRequest;
 use App\Models\Address;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AddressController extends Controller
 {
@@ -45,7 +46,7 @@ class AddressController extends Controller
         }
 
         return redirect('addresses')
-            ->with('status', 'Address created!');
+            ->with('status', 'Address Created');
     }
 
     public function postEdit($id, AddressRequest $request)
@@ -60,9 +61,10 @@ class AddressController extends Controller
         }
 
         return redirect('addresses')
-            ->with('status', 'Address updated!');
+            ->with('status', 'Address Updated');
     }
 
+    
     public function postDelete($id)
     {
         $address = Address::find($id)
@@ -73,6 +75,12 @@ class AddressController extends Controller
         }
 
         return redirect('addresses')
-            ->with('status', 'Address deleted!');
+            ->with('status', 'Address Deleted');
     }
 }
+
+
+
+
+
+

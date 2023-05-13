@@ -37,6 +37,15 @@
                         @endforelse
                     </table>
                 </div>
+                <div>
+                    @if(session('status'))
+                        <div class="alert alert-success text-center mt-3 border border-8 border-indigo-600 text-indigo-600 px-5 py-5 text-2xl font-bold">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                </div>
+                
+
                 <div class="flex flex-col items-center justify-center mt-14">
                     <a href="/addresses/create" class="text-center w-1/2 mb-5 px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg">Add New Address</a>
                     
@@ -53,18 +62,12 @@
     
         <script>
 
-            $('#delete').on('submit',function(e){
-                e.preventDefault();
-                swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Address has been deleted',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+            $(document).ready(function() {
+                setTimeout(function() {
+                    $(".alert").fadeOut();
+                }, 3000);
             });
-
-
+    
         </script>
 
 </x-layout.app>
