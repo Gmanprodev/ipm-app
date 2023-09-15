@@ -6,7 +6,7 @@
                     <p>Edit Address</p>
                 </h1>
         
-                <form action="/contacts/{{ $address->id }}/edit" method="POST" class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
+                <form action="/addresses/{{ $address->id }}/edit" method="POST" class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
                     @csrf
                     <p class="text-lg font-medium text-center">{{ $address->address }}</p>
                     <div>

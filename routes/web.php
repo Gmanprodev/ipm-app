@@ -38,6 +38,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/addresses/create', [AddressController::class, 'create'])
         ->name('addresses.create');
 
+    Route::get('/addresses/{id}/view-address', [AddressController::class, 'viewAddress'])
+        ->name('addresses.view.address');
+
     Route::post('/addresses/create', [AddressController::class, 'postCreate'])
         ->name('addresses.post.create');;
 

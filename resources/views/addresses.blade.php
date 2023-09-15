@@ -12,7 +12,7 @@
                                 <tr class="mt-6 rounded">
                                     <td class="p-4">{{ $address->address }}</td>
                                     <td class="">
-                                        <a href="/addresses/{{ $address->id }}/view" class="w-full justify-center items-center px-5 py-1 text-sm font-medium text-white bg-green-600 rounded-lg">
+                                        <a href="/addresses/{{ $address->id }}/view-address" class="w-full justify-center items-center px-5 py-1 text-sm font-medium text-white bg-green-600 rounded-lg">
                                             View
                                         </a>
                                     </td>

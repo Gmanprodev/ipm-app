@@ -35,6 +35,19 @@ class AddressController extends Controller
         ]);
     }
 
+    public function viewAddress($id)
+    {
+        $address = Address::find($id);
+
+        if (!$address) {
+            abort(404);
+        }
+
+        return view('view-address', [
+            'address' => $address
+        ]);
+    }
+
     public function postCreate(AddressRequest $request)
     {
         $address = Address::create($request->only([
